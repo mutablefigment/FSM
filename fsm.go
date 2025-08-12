@@ -1,4 +1,4 @@
-// Package FSM provides a generic, thread-safe finite state machine implementation
+// Package mut_fsm provides a generic, thread-safe finite state machine implementation
 // that leverages Go's type system for compile-time safety. It can be reused across
 // different projects with any state and event types.
 package mut_fsm
