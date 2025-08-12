@@ -19,7 +19,6 @@ const (
 const (
 	EventStart TestEvent = "start"
 	EventStop  TestEvent = "stop"
-	EventPause TestEvent = "pause"
 	EventError TestEvent = "error"
 	EventReset TestEvent = "reset"
 )
@@ -354,9 +353,15 @@ func BenchmarkSendEvent(b *testing.B) {
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		if i%2 == 0 {
-			fsm.SendEvent(EventStart)
+			_, err := fsm.SendEvent(EventStart)
+			if err != nil {
+				return
+			}
 		} else {
-			fsm.SendEvent(EventStop)
+			_, err := fsm.SendEvent(EventStop)
+			if err != nil {
+				return
+			}
 		}
 	}
 }
