@@ -1,4 +1,4 @@
-package FSM
+package mut_fsm
 
 import (
 	"fmt"
